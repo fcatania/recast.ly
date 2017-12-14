@@ -47,6 +47,7 @@ class App extends React.Component {
 
   inputHandler(string) {
     this.setState({searchSTR: string});
+    this.searchHandler();
   }
 
   render() {
