@@ -4,7 +4,28 @@ class App extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
     this.inputHandler = this.inputHandler.bind(this);
-    this.state = {videos: window.exampleVideoData, selectedVideo: window.exampleVideoData[0], searchSTR: ''};
+    const placeholder = {
+      id: {
+        videoId: '4ZAEBxGipoA'
+      },
+      snippet: {
+        title: 'React JS Tutorial for Beginners - 1 - Introduction',
+        description: 'My website - https://www.thenewboston.com/videos.php Have questions about the tutorial or React? Ask them here ...',
+        thumbnails: {
+          default: {
+            url: 'https://i.ytimg.com/vi/4ZAEBxGipoA/default.jpg',
+            width: 120,
+            height: 90
+          }
+        },
+      }
+    };
+    this.state = {videos: [placeholder], selectedVideo: placeholder, searchSTR: 'Pokemon'};
+  }
+
+  componentDidMount() {
+    //this function will be called after render()
+    this.searchHandler();
   }
 
   clickHandler(video) {
