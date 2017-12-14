@@ -4,6 +4,7 @@ class App extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
     this.inputHandler = this.inputHandler.bind(this);
+    this.debouncedInputHandler = _.debounce(this.inputHandler, 500);
     const placeholder = {
       id: {
         videoId: '4ZAEBxGipoA'
@@ -55,7 +56,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search searchHandler={this.searchHandler} inputHandler={this.inputHandler}/>
+            <Search searchHandler={this.searchHandler} inputHandler={this.debouncedInputHandler}/>
           </div>
         </nav>
         <div className="row">
